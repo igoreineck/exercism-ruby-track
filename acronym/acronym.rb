@@ -21,7 +21,11 @@ class Acronym
     private
 
     def split_phrase
-      @phrase.split(" ")
+      remove_special_characters.split(" ")
+    end
+
+    def remove_special_characters
+      @phrase.gsub(/-(\s+)?/, ' ')
     end
 
     def upcase_first_letter(word)
